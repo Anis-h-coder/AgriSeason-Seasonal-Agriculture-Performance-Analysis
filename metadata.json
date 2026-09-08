@@ -1,0 +1,8 @@
+{
+  "name": "AgriSeason",
+  "description": "Seasonal Agriculture Performance Analysis dashboard for monitoring yields, environmental conditions, and crop economics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
