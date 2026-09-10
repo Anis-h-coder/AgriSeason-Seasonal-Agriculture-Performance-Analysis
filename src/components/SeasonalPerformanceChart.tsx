@@ -123,7 +123,14 @@ export const SeasonalPerformanceChart: React.FC<SeasonalPerformanceChartProps> =
           return (
             <button
               key={s.season}
-              onClick={() => onSeasonChange(s.season.toLowerCase() as SeasonType)}
+              onClick={() => {
+                const targetSeason = s.season.toLowerCase() as SeasonType;
+                if (onSeasonChange) {
+                  onSeasonChange(targetSeason);
+                } else {
+                  setSeason(targetSeason);
+                }
+              }}
               className={`px-3.5 py-2.5 rounded-2xl text-left border transition-all duration-150 cursor-pointer min-h-[44px] ${
                 isSelected
                   ? 'bg-[#F0F7EE] border-[#A3E635] shadow-2xs'

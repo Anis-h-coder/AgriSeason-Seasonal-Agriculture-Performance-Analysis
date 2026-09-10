@@ -206,7 +206,13 @@ export const AIInsightsView: React.FC<AIInsightsViewProps> = ({
   };
 
   const handleCopy = (id: string, text: string) => {
-    navigator.clipboard.writeText(text);
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).catch(() => {});
+      }
+    } catch (e) {
+      // Ignore clipboard error in restricted sandboxed environment
+    }
     setCopiedId(id);
     setTimeout(() => setCopiedId(null), 2000);
   };
